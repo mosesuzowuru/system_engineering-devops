@@ -1,0 +1,111 @@
+#!/bin/bash
+
+# Shell Basics Tasks Generator
+# Creates all the required shell script files
+
+echo "=============================================="
+echo "    Shell Basics Tasks Generator"
+echo "=============================================="
+echo
+
+# Create the directory structure if it doesn't exist
+mkdir -p 0x00-shell_basics
+cd 0x00-shell_basics
+
+echo "Creating shell basics task files..."
+echo
+
+# =============================================================================
+# TASK 0: Where Am I? - Print current working directory
+# =============================================================================
+echo "📝 Creating 0-current_working_directory..."
+
+cat > 0-current_working_directory << 'EOF'
+#!/bin/bash
+pwd
+EOF
+
+chmod +x 0-current_working_directory
+echo "✓ 0-current_working_directory created and made executable"
+
+# =============================================================================
+# TASK 1: What's in There? - List directory contents
+# =============================================================================
+echo "📝 Creating 1-listit..."
+
+cat > 1-listit << 'EOF'
+#!/bin/bash
+ls
+EOF
+
+chmod +x 1-listit
+echo "✓ 1-listit created and made executable"
+
+# =============================================================================
+# TASK 2: There's no Place Like Home - Change to home directory
+# =============================================================================
+echo "📝 Creating 2-bring_me_home..."
+
+cat > 2-bring_me_home << 'EOF'
+#!/bin/bash
+cd ~
+EOF
+
+chmod +x 2-bring_me_home
+echo "✓ 2-bring_me_home created and made executable"
+
+# =============================================================================
+# TASK 3: The Long Format - List in long format
+# =============================================================================
+echo "📝 Creating 3-listfiles..."
+
+cat > 3-listfiles << 'EOF'
+#!/bin/bash
+ls -l
+EOF
+
+chmod +x 3-listfiles
+echo "✓ 3-listfiles created and made executable"
+
+# =============================================================================
+# TASK 4: Hidden Files - List all files including hidden ones in long format
+# =============================================================================
+echo "📝 Creating 4-listmorefiles..."
+
+cat > 4-listmorefiles << 'EOF'
+#!/bin/bash
+ls -la
+EOF
+
+chmod +x 4-listmorefiles
+echo "✓ 4-listmorefiles created and made executable"
+
+echo
+echo "================================================"
+echo "🎉 ALL SHELL BASICS SCRIPTS CREATED!"
+echo "================================================"
+echo
+echo "Created files:"
+echo "✓ 0-current_working_directory - Print current working directory"
+echo "✓ 1-listit - List directory contents"  
+echo "✓ 2-bring_me_home - Change to home directory"
+echo "✓ 3-listfiles - List files in long format"
+echo "✓ 4-listmorefiles - List all files (including hidden) in long format"
+echo
+echo "All files are executable and ready to test!"
+echo
+echo "Test them with:"
+echo "  ./0-current_working_directory"
+echo "  ./1-listit"
+echo "  source ./2-bring_me_home  # Note: use 'source' for cd command"
+echo "  ./3-listfiles"
+echo "  ./4-listmorefiles"
+echo
+echo "Directory structure:"
+ls -la
+
+echo
+echo "You can now add, commit, and push these files to your repository:"
+echo "  git add ."
+echo "  git commit -m \"Added shell basics scripts\""
+echo "  git push origin main"
