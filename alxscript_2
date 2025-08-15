@@ -1,0 +1,208 @@
+#!/bin/bash
+
+# Shell Permissions Tasks Generator
+# Creates all the required shell permission script files
+
+echo "=============================================="
+echo "    Shell Permissions Tasks Generator"
+echo "=============================================="
+echo
+
+# Create the directory structure if it doesn't exist
+mkdir -p 0x01-shell_permissions
+cd 0x01-shell_permissions
+
+echo "Creating shell permissions task files..."
+echo
+
+# =============================================================================
+# TASK 0: My Name Is Betty - Switch to user betty (exactly 8 characters)
+# =============================================================================
+echo "📝 Creating 0-iam_betty..."
+
+cat > 0-iam_betty << 'EOF'
+#!/bin/bash
+su betty
+EOF
+
+chmod +x 0-iam_betty
+echo "✓ 0-iam_betty created (command is exactly 8 characters)"
+
+# =============================================================================
+# TASK 1: Who Am I - Print effective username
+# =============================================================================
+echo "📝 Creating 1-who_am_i..."
+
+cat > 1-who_am_i << 'EOF'
+#!/bin/bash
+whoami
+EOF
+
+chmod +x 1-who_am_i
+echo "✓ 1-who_am_i created"
+
+# =============================================================================
+# TASK 2: Groups - Print all groups the current user is part of
+# =============================================================================
+echo "📝 Creating 2-groups..."
+
+cat > 2-groups << 'EOF'
+#!/bin/bash
+groups
+EOF
+
+chmod +x 2-groups
+echo "✓ 2-groups created"
+
+# =============================================================================
+# TASK 3: New Owner - Change owner of hello file to betty
+# =============================================================================
+echo "📝 Creating 3-new_owner..."
+
+cat > 3-new_owner << 'EOF'
+#!/bin/bash
+chown betty hello
+EOF
+
+chmod +x 3-new_owner
+echo "✓ 3-new_owner created"
+
+# =============================================================================
+# TASK 4: Empty! - Create an empty file called hello
+# =============================================================================
+echo "📝 Creating 4-empty..."
+
+cat > 4-empty << 'EOF'
+#!/usr/bin/env bash
+# This script creates an empty file called hello
+touch hello
+EOF
+
+chmod +x 4-empty
+echo "✓ 4-empty created"
+
+# =============================================================================
+# TASK 5: Execute - Add execute permission to owner of hello file
+# =============================================================================
+echo "📝 Creating 5-execute..."
+
+cat > 5-execute << 'EOF'
+#!/usr/bin/env bash
+# This script adds execute permission to the owner of the file hello
+chmod u+x hello
+EOF
+
+chmod +x 5-execute
+echo "✓ 5-execute created"
+
+# =============================================================================
+# TASK 6: James Bond - Set permissions to -------rwx (007)
+# =============================================================================
+echo "📝 Creating 8-James_Bond..."
+
+cat > 8-James_Bond << 'EOF'
+#!/usr/bin/env bash
+# This script sets the permissions of hello to -------rwx
+chmod 007 hello
+EOF
+
+chmod +x 8-James_Bond
+echo "✓ 8-James_Bond created (permissions: -------rwx)"
+
+# =============================================================================
+# TASK 7: John Doe - Set permissions to -rwxr-x-wx (753)
+# =============================================================================
+echo "📝 Creating 9-John_Doe..."
+
+cat > 9-John_Doe << 'EOF'
+#!/usr/bin/env bash
+# This script sets the permissions of hello to -rwxr-x-wx
+chmod 753 hello
+EOF
+
+chmod +x 9-John_Doe
+echo "✓ 9-John_Doe created (permissions: -rwxr-x-wx)"
+
+# =============================================================================
+# TASK 8: Directories - Add execute permission to all subdirectories
+# =============================================================================
+echo "📝 Creating 11-directories_permissions..."
+
+cat > 11-directories_permissions << 'EOF'
+#!/usr/bin/env bash
+# This script adds execute permission to all subdirectories for owner, group and others
+chmod +X *
+EOF
+
+chmod +x 11-directories_permissions
+echo "✓ 11-directories_permissions created"
+
+# =============================================================================
+# TASK 9: More directories - Create directory my_dir with permissions 751
+# =============================================================================
+echo "📝 Creating 12-directory_permissions..."
+
+cat > 12-directory_permissions << 'EOF'
+#!/usr/bin/env bash
+# This script creates a directory my_dir with permissions 751
+mkdir -m 751 my_dir
+EOF
+
+chmod +x 12-directory_permissions
+echo "✓ 12-directory_permissions created"
+
+# =============================================================================
+# TASK 10: Change group - Change group owner of hello to school
+# =============================================================================
+echo "📝 Creating 13-change_group..."
+
+cat > 13-change_group << 'EOF'
+#!/usr/bin/env bash
+# This script changes the group owner of hello to school
+chgrp school hello
+EOF
+
+chmod +x 13-change_group
+echo "✓ 13-change_group created"
+
+echo
+echo "================================================"
+echo "🎉 ALL SHELL PERMISSIONS SCRIPTS CREATED!"
+echo "================================================"
+echo
+echo "Created files:"
+echo "✓ 0-iam_betty - Switch to user betty (exactly 8 chars)"
+echo "✓ 1-who_am_i - Print effective username"  
+echo "✓ 2-groups - Print all groups user belongs to"
+echo "✓ 3-new_owner - Change owner of hello to betty"
+echo "✓ 4-empty - Create empty file hello"
+echo "✓ 5-execute - Add execute permission to owner of hello"
+echo "✓ 8-James_Bond - Set permissions to -------rwx (007)"
+echo "✓ 9-John_Doe - Set permissions to -rwxr-x-wx (753)"
+echo "✓ 11-directories_permissions - Add execute to subdirectories"
+echo "✓ 12-directory_permissions - Create my_dir with 751 permissions"
+echo "✓ 13-change_group - Change group of hello to school"
+echo
+echo "All files are executable and ready to test!"
+echo
+echo "Test them with:"
+echo "  ./0-iam_betty (will switch to betty user)"
+echo "  ./1-who_am_i"
+echo "  ./2-groups"
+echo "  sudo ./3-new_owner (requires sudo)"
+echo "  ./4-empty"
+echo "  ./5-execute"
+echo "  ./8-James_Bond"
+echo "  ./9-John_Doe"
+echo "  ./11-directories_permissions"
+echo "  ./12-directory_permissions"
+echo "  sudo ./13-change_group (requires sudo)"
+echo
+echo "Directory structure:"
+ls -la
+
+echo
+echo "You can now add, commit, and push these files to your repository:"
+echo "  git add ."
+echo "  git commit -m \"Added shell permissions scripts\""
+echo "  git push origin main"
