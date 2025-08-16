@@ -1,1 +1,1 @@
-# system_engineering-devops
+This repository includes the basics of Linux file system navigation and fundamental shell commands.
